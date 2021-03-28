@@ -197,9 +197,11 @@ def my_run_tst():
     # generate 100000 kv pairs with f=0.7 and m=0.3
     kv_list = [[np.random.binomial(1, 0.7), np.clip(a=np.random.normal(loc=0.3, scale=0.3), a_min=-1, a_max=1)] for _ in
                range(500000)]
+    # print(kv_list)
     kv_list = np.asarray(kv_list)
     kv_list[:, 1] = kv_list[:, 1] * kv_list[:, 0]
     f_base, m_base = kvlist_get_baseline(kv_list=np.asarray(kv_list))
+    return
     print("this is the baseline f=%.4f, m=%.4f" % (f_base, m_base))
 
     epsilon = 0.1

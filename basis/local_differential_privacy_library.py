@@ -35,6 +35,7 @@ def k_random_response(value, values, epsilon):
     :param values: the possible value
     :param epsilon: privacy budget
     :return:
+    Note by LeileiDu: This will destroy "values" structure
     """
     if not isinstance(values, list):
         raise Exception("The values should be list")
