@@ -49,6 +49,9 @@ def k_random_response(value, values, epsilon):
 
 
 def k_random_response_new(item, k, epsilon):
+    """
+    Evenly select probability with 1/k choosing p_h, and (k-1)/k choosing p_l
+    """
     if not item < k:
         raise Exception("the input domain is wrong, item = %d, k = %d." % (item, k))
     p_l = 1 / (np.e ** epsilon + k - 1)
