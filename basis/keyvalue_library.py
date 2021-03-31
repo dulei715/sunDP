@@ -7,8 +7,12 @@
 import numpy as np
 import basis.local_differential_privacy_library as ldplib
 
-
 def kvlist_get_baseline(kv_list: np.ndarray, discretization=False):
+    """
+    Noted by Leilei Du
+    This function return the average of the first column and the average of
+    discretization(if False, equal to the former) of the first column
+    """
     if not isinstance(discretization, bool):
         raise Exception("Input type error: ", type(discretization))
     f = np.average(kv_list[:, 0])
@@ -26,6 +30,10 @@ def kvlist_get_baseline(kv_list: np.ndarray, discretization=False):
 
 
 def kvt_get_baseline(kvt: np.ndarray, discretization=False):
+    """
+    Noded by Leilei Du
+    For each column, get the baseline and record them in the f_list and m_list
+    """
     if not isinstance(kvt, np.ndarray):
         raise Exception("type error of kvt: ", type(kvt))
 
